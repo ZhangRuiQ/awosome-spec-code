@@ -1,8 +1,10 @@
-# IDE 适配层
+# init
 
-本目录包含 Code Copilot 框架对各种 AI 编码工具的适配配置。
+安装脚本（`setup.sh` / `setup.ps1`）与各 AI 编码工具的配置模板。将 `code-copilot/` 引入业务项目时通常在本目录执行一次即可。
 
-## 支持的 IDE 工具
+与对话命令 `/init`（初始化项目上下文、填充 `project-context.md`）不同：这里是仓库侧的冷启动入口。
+
+## 支持的工具
 
 | 工具 | 目录 | 配置文件 | 适用场景 |
 |------|------|----------|----------|
@@ -18,14 +20,14 @@
 
 ```bash
 # Linux/Mac
-bash /path/to/code-copilot/.code-copilot/ide-adapters/setup.sh
+bash /path/to/awosome-spec-code/code-copilot/init/setup.sh
 
 # Windows
-powershell /path/to/code-copilot/.code-copilot/ide-adapters/setup.ps1
+powershell /path/to/awosome-spec-code/code-copilot/init/setup.ps1
 ```
 
 脚本会自动：
-1. 复制 `.code-copilot/` 框架到项目
+1. 复制 `code-copilot/` 框架到项目
 2. 检测你使用的 IDE 工具
 3. 自动复制对应的配置文件到项目根目录
 
@@ -36,7 +38,7 @@ powershell /path/to/code-copilot/.code-copilot/ide-adapters/setup.ps1
 #### Cursor
 
 ```bash
-cp /path/to/.code-copilot/ide-adapters/cursor/.cursorrules your-project/
+cp /path/to/awosome-spec-code/code-copilot/init/cursor/.cursorrules your-project/
 ```
 
 将 `.cursorrules` 放在项目根目录，Cursor 会自动识别并加载。
@@ -44,7 +46,7 @@ cp /path/to/.code-copilot/ide-adapters/cursor/.cursorrules your-project/
 #### Claude Code
 
 ```bash
-cp /path/to/.code-copilot/ide-adapters/claude/CLAUDE.md your-project/
+cp /path/to/awosome-spec-code/code-copilot/init/claude/CLAUDE.md your-project/
 ```
 
 将 `CLAUDE.md` 放在项目根目录，启动 `claude` 时会自动加载。
@@ -63,7 +65,7 @@ claude config set system_prompt_file ~/.config/claude/CLAUDE.md
 #### opencode
 
 ```bash
-cp /path/to/.code-copilot/ide-adapters/opencode/opencode.yaml your-project/
+cp /path/to/awosome-spec-code/code-copilot/init/opencode/opencode.yaml your-project/
 ```
 
 将 `opencode.yaml` 放在项目根目录，启动 `opencode` 时会自动加载。
@@ -103,7 +105,7 @@ opencode --config opencode.yaml
 
 ```
 your-project/
-├── .code-copilot/              # 核心框架
+├── code-copilot/              # 核心框架
 ├── .cursorrules               # Cursor 配置
 ├── CLAUDE.md                  # Claude Code 配置
 ├── opencode.yaml              # opencode 配置
@@ -126,7 +128,7 @@ your-project/
 
 ### 添加新工具支持
 
-1. 在 `ide-adapters/` 下创建新目录（如 `new-tool/`）
+1. 在 `code-copilot/init/` 下创建新目录（如 `new-tool/`）
 2. 添加配置文件
 3. 更新 `setup.sh` 和 `setup.ps1` 添加检测逻辑
 4. 更新本 README 添加说明

@@ -23,16 +23,16 @@
 ## 目录结构
 
 ```
-.code-copilot/
+code-copilot/
 ├── README.md                          # 本文件
 ├── QUICKSTART.md                      # 快速开始指南
-├── ide-adapters/                      # IDE 工具适配层
-│   ├── README.md                      # 适配层说明
-│   ├── cursor/                        # Cursor 适配
+├── init/                              # 安装脚本与各工具配置模板
+│   ├── README.md                      # init 目录说明
+│   ├── cursor/                        # Cursor 模板
 │   │   └── .cursorrules               # Cursor 配置文件
-│   ├── claude/                        # Claude Code 适配
+│   ├── claude/                        # Claude Code 模板
 │   │   └── CLAUDE.md                  # Claude 系统提示词
-│   ├── opencode/                      # opencode 适配
+│   ├── opencode/                      # opencode 模板
 │   │   └── opencode.yaml              # opencode 配置
 │   ├── setup.sh                       # Linux/Mac 安装脚本
 │   └── setup.ps1                      # Windows 安装脚本
@@ -76,15 +76,15 @@
 ```bash
 # Linux/Mac
 cd your-project
-bash /path/to/code-copilot/.code-copilot/ide-adapters/setup.sh
+bash /path/to/awosome-spec-code/code-copilot/init/setup.sh
 
 # Windows
 cd your-project
-powershell /path/to/code-copilot/.code-copilot/ide-adapters/setup.ps1
+powershell /path/to/awosome-spec-code/code-copilot/init/setup.ps1
 ```
 
 脚本会自动：
-- 复制 `.code-copilot/` 到项目
+- 复制 `code-copilot/` 到项目
 - 检测你使用的 IDE 工具
 - 自动创建对应的配置文件
 
@@ -92,12 +92,12 @@ powershell /path/to/code-copilot/.code-copilot/ide-adapters/setup.ps1
 
 ```bash
 # 1. 复制框架目录
-cp -r /path/to/code-copilot/.code-copilot your-project/
+cp -r /path/to/awosome-spec-code/code-copilot your-project/
 
 # 2. 根据你的 IDE 选择配置文件
-cp .code-copilot/ide-adapters/cursor/.cursorrules .     # Cursor
-cp .code-copilot/ide-adapters/claude/CLAUDE.md .        # Claude Code
-cp .code-copilot/ide-adapters/opencode/opencode.yaml .  # opencode
+cp code-copilot/init/cursor/.cursorrules .     # Cursor
+cp code-copilot/init/claude/CLAUDE.md .        # Claude Code
+cp code-copilot/init/opencode/opencode.yaml .  # opencode
 ```
 
 #### 方式 3：全局安装（Claude Code/opencode）
@@ -112,7 +112,7 @@ opencode config set system_prompt_file ~/.config/opencode/system.yaml
 
 ### 1. 初始化项目
 
-执行 `/init` 命令，让 AI 分析工程并填充 `rules/project-context.md`。
+执行 `/init` 命令，让 AI 分析工程并填充 `code-copilot/rules/project-context.md`。
 
 ### 2. 创建变更
 

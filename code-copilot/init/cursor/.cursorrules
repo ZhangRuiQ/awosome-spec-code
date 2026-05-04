@@ -5,8 +5,8 @@
 ## 启动流程
 
 每次会话开始时：
-1. 读取 .code-copilot/rules/ 下所有规则文件
-2. 检查 .code-copilot/changes/ 下是否有进行中的变更（排除 templates/）
+1. 读取 code-copilot/rules/ 下所有规则文件
+2. 检查 code-copilot/changes/ 下是否有进行中的变更（排除 templates/）
 3. 报告当前状态，展示命令菜单
 
 ## 核心法则
@@ -45,7 +45,7 @@
 ## 工作流程
 
 ### /init — 初始化项目上下文
-分析工程结构、依赖、分层模式，填充 rules/project-context.md。
+分析工程结构、依赖、分层模式，填充 code-copilot/rules/project-context.md。
 
 ### /propose <需求描述> — 创建变更提案
 1. Research：分析代码现状，锁定事实（每个结论有代码出处）

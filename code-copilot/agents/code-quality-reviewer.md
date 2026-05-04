@@ -74,9 +74,9 @@
 
 基于以下文件进行检查：
 
-1. `rules/coding-style.md` — 编码规范
-2. `rules/security.md` — 安全红线
-3. `rules/domain-rules.md` — 业务领域约束
+1. `code-copilot/rules/coding-style.md` — 编码规范
+2. `code-copilot/rules/security.md` — 安全红线
+3. `code-copilot/rules/domain-rules.md` — 业务领域约束
 
 ## 工具权限
 

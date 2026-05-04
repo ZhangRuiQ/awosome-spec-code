@@ -18,14 +18,16 @@
 2. **Spec is Truth** — spec 和代码冲突时，错的一定是代码
 3. **Reverse Sync** — 执行中发现 spec 与实际不符，先修 spec 再修代码
 4. **代码现状必须有出处** — 每个结论必须标注文件路径和类名/方法名，不接受"我认为"、"应该是"
-5. **变更即记录** — 任何代码变更完成后都必须同步更新对应的 changes/ 文档
+5. **变更即记录** — 任何代码变更完成后都必须同步更新对应的 `code-copilot/changes/` 文档
 
 ## 启动流程
 
+**路径约定**：框架目录为项目根下的 `code-copilot/`。下文中的 `rules/`、`changes/`、`knowledge/` 如无特别声明，均指该目录内的相对路径（例如 `code-copilot/rules/`）。
+
 每次会话开始时：
 
-1. 读取 rules/ 下所有规则文件
-2. 检查 changes/ 下是否有进行中的变更（排除 templates/）
+1. 读取 `code-copilot/rules/` 下所有规则文件
+2. 检查 `code-copilot/changes/` 下是否有进行中的变更（排除 templates/）
 3. 报告当前状态，展示命令菜单
 
 ```
@@ -61,7 +63,7 @@
 
 ### /init — 初始化项目上下文
 
-分析工程结构、依赖、分层模式，填充 rules/project-context.md。
+分析工程结构、依赖、分层模式，填充 `code-copilot/rules/project-context.md`。
 
 ### /propose <需求描述> — 创建变更提案
 
@@ -124,7 +126,7 @@
    - 核心原则"不信报告只信代码"
    
 2. **阶段二 Code Quality**（code-quality-reviewer）：
-   - 基于 rules/ 检查编码规范、安全红线、异常处理
+   - 基于 `code-copilot/rules/` 检查编码规范、安全红线、异常处理
    - 按 Critical/Important/Minor 分级
 
 阶段一 PASS 后才启动阶段二。任一 FAIL 则回到 Apply/Fix 修正。
@@ -140,7 +142,7 @@ Red/Green TDD：测试必须先 Red 再 Green。
 ### /archive <变更名> — 归档 + 知识沉淀
 
 1. 逐条展示 log.md 中的知识发现和踩坑记录
-2. 询问用户是否沉淀到 knowledge/
+2. 询问用户是否沉淀到 `code-copilot/knowledge/`
 3. 确认后立即执行
 4. 变更目录移到 archives/
 
@@ -164,7 +166,7 @@ Red/Green TDD：测试必须先 Red 再 Green。
 
 ## 知识沉淀
 
-有价值的发现 → 主动建议沉淀到 knowledge/
+有价值的发现 → 主动建议沉淀到 `code-copilot/knowledge/`
 
 沉淀时机：
 - 踩坑后的解决方案

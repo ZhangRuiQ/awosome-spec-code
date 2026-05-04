@@ -10,8 +10,8 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# 框架目录
-CODE_COPILOT_DIR=".code-copilot"
+# 安装到目标项目根目录下的框架目录名
+CODE_COPILOT_DIR="code-copilot"
 
 echo -e "${GREEN}Code Copilot 安装脚本${NC}"
 echo "=============================="
@@ -30,19 +30,19 @@ fi
 
 # 复制框架目录
 echo "正在复制框架文件..."
-cp -r "$(dirname "$0")/../$CODE_COPILOT_DIR" .
+cp -r "$(dirname "$0")/.." .
 
 # 检测 IDE 并创建相应配置文件
 echo ""
 echo "正在检测 IDE 配置..."
 
-IDE_ADAPTERS_DIR="$(dirname "$0")"
+INIT_DIR="$(dirname "$0")"
 
 # Cursor
 if [ -d ".cursor" ] || command -v cursor &> /dev/null; then
     echo -e "${GREEN}检测到 Cursor IDE${NC}"
     if [ ! -f ".cursorrules" ]; then
-        cp "$IDE_ADAPTERS_DIR/cursor/.cursorrules" .
+        cp "$INIT_DIR/cursor/.cursorrules" .
         echo -e "${GREEN}已创建 .cursorrules 文件${NC}"
     else
         echo -e "${YELLOW}.cursorrules 已存在，跳过创建${NC}"
@@ -53,7 +53,7 @@ fi
 if command -v claude &> /dev/null; then
     echo -e "${GREEN}检测到 Claude Code${NC}"
     if [ ! -f "CLAUDE.md" ]; then
-        cp "$IDE_ADAPTERS_DIR/claude/CLAUDE.md" .
+        cp "$INIT_DIR/claude/CLAUDE.md" .
         echo -e "${GREEN}已创建 CLAUDE.md 文件${NC}"
     else
         echo -e "${YELLOW}CLAUDE.md 已存在，跳过创建${NC}"
@@ -64,7 +64,7 @@ fi
 if command -v opencode &> /dev/null; then
     echo -e "${GREEN}检测到 opencode${NC}"
     if [ ! -f "opencode.yaml" ]; then
-        cp "$IDE_ADAPTERS_DIR/opencode/opencode.yaml" .
+        cp "$INIT_DIR/opencode/opencode.yaml" .
         echo -e "${GREEN}已创建 opencode.yaml 文件${NC}"
     else
         echo -e "${YELLOW}opencode.yaml 已存在，跳过创建${NC}"

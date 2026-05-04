@@ -7,16 +7,16 @@
 ```
 .
 ├── README.md                          # 本文件
-├── .code-copilot/                     # Spec 编码框架（复制到项目根目录使用）
+├── code-copilot/                     # Spec 编码框架（复制到项目根目录使用）
 │   ├── README.md                      # 框架说明与快速开始
 │   ├── QUICKSTART.md                  # 快速开始指南
-│   ├── ide-adapters/                  # IDE 工具适配层
-│   │   ├── README.md                  # 适配层说明
-│   │   ├── cursor/                    # Cursor 适配
+│   ├── init/                          # 安装脚本与各工具配置模板
+│   │   ├── README.md                  # init 目录说明
+│   │   ├── cursor/                    # Cursor 模板
 │   │   │   └── .cursorrules           # Cursor 配置文件
-│   │   ├── claude/                    # Claude Code 适配
+│   │   ├── claude/                    # Claude Code 模板
 │   │   │   └── CLAUDE.md              # Claude 系统提示词
-│   │   ├── opencode/                  # opencode 适配
+│   │   ├── opencode/                  # opencode 模板
 │   │   │   └── opencode.yaml          # opencode 配置
 │   │   ├── setup.sh                   # Linux/Mac 安装脚本
 │   │   └── setup.ps1                  # Windows 安装脚本
@@ -61,25 +61,27 @@
 ```bash
 # Linux/Mac
 cd your-project
-bash /path/to/code-copilot/.code-copilot/ide-adapters/setup.sh
+bash /path/to/awosome-spec-code/code-copilot/init/setup.sh
 
 # Windows
 cd your-project
-powershell /path/to/code-copilot/.code-copilot/ide-adapters/setup.ps1
+powershell /path/to/awosome-spec-code/code-copilot/init/setup.ps1
 ```
 
 脚本会自动检测你的 IDE 工具并创建对应配置。
+
+示例路径中的 `awosome-spec-code` 请换为你本机克隆本仓库后的根目录名。
 
 #### 方式 2：手动复制
 
 ```bash
 # 复制框架目录
-cp -r /path/to/code-copilot/.code-copilot your-project/
+cp -r /path/to/awosome-spec-code/code-copilot your-project/
 
 # 根据你的 IDE 选择配置文件
-cp .code-copilot/ide-adapters/cursor/.cursorrules .     # Cursor
-cp .code-copilot/ide-adapters/claude/CLAUDE.md .       # Claude Code
-cp .code-copilot/ide-adapters/opencode/opencode.yaml . # opencode
+cp code-copilot/init/cursor/.cursorrules .     # Cursor
+cp code-copilot/init/claude/CLAUDE.md .       # Claude Code
+cp code-copilot/init/opencode/opencode.yaml . # opencode
 ```
 
 ### 2. 初始化项目
@@ -90,7 +92,7 @@ cp .code-copilot/ide-adapters/opencode/opencode.yaml . # opencode
 /init
 ```
 
-AI 会分析工程结构并填充 `rules/project-context.md`。
+AI 会分析工程结构并填充 `code-copilot/rules/project-context.md`。
 
 ### 3. 创建变更
 

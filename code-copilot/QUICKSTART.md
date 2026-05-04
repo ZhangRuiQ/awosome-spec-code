@@ -18,15 +18,15 @@
 
 ```bash
 cd your-project
-bash /path/to/.code-copilot/ide-adapters/setup.sh
+bash /path/to/awosome-spec-code/code-copilot/init/setup.sh
 ```
 
 #### 方式 2：手动复制
 
 ```bash
 cd your-project
-cp -r /path/to/.code-copilot .
-cp .code-copilot/ide-adapters/cursor/.cursorrules .
+cp -r /path/to/awosome-spec-code/code-copilot .
+cp code-copilot/init/cursor/.cursorrules .
 ```
 
 ### 开始使用
@@ -53,15 +53,15 @@ cp .code-copilot/ide-adapters/cursor/.cursorrules .
 
 ```bash
 cd your-project
-bash /path/to/.code-copilot/ide-adapters/setup.sh
+bash /path/to/awosome-spec-code/code-copilot/init/setup.sh
 ```
 
 #### 方式 2：手动复制
 
 ```bash
 cd your-project
-cp -r /path/to/.code-copilot .
-cp .code-copilot/ide-adapters/claude/CLAUDE.md .
+cp -r /path/to/awosome-spec-code/code-copilot .
+cp code-copilot/init/claude/CLAUDE.md .
 ```
 
 ### 开始使用
@@ -85,7 +85,7 @@ claude                          # 启动，自动加载 CLAUDE.md
 ```bash
 # 复制系统提示词到全局配置
 mkdir -p ~/.config/claude
-cp .code-copilot/ide-adapters/claude/CLAUDE.md ~/.config/claude/
+cp code-copilot/init/claude/CLAUDE.md ~/.config/claude/
 
 # 设置全局系统提示词
 claude config set system_prompt_file ~/.config/claude/CLAUDE.md
@@ -99,15 +99,15 @@ claude config set system_prompt_file ~/.config/claude/CLAUDE.md
 
 ```bash
 cd your-project
-bash /path/to/.code-copilot/ide-adapters/setup.sh
+bash /path/to/awosome-spec-code/code-copilot/init/setup.sh
 ```
 
 #### 方式 2：手动复制
 
 ```bash
 cd your-project
-cp -r /path/to/.code-copilot .
-cp .code-copilot/ide-adapters/opencode/opencode.yaml .
+cp -r /path/to/awosome-spec-code/code-copilot .
+cp code-copilot/init/opencode/opencode.yaml .
 ```
 
 ### 开始使用
@@ -143,7 +143,7 @@ opencode --config opencode.yaml
 /init
 ```
 
-AI 会分析你的工程结构并填充 `.code-copilot/rules/project-context.md`。
+AI 会分析你的工程结构并填充 `code-copilot/rules/project-context.md`。
 
 ### 第 2 步：创建第一个变更
 
@@ -191,17 +191,17 @@ AI 会展示知识发现，询问是否沉淀到 knowledge/。
 - 用 Claude Code 处理复杂任务
 - 用 opencode 测试不同模型
 
-它们都读取相同的 `.code-copilot/` 目录。
+它们都读取相同的 `code-copilot/` 目录。
 
 ### Q: 如何更新框架？
 
-1. 获取最新版本的 `.code-copilot/`
+1. 获取最新版本的 `code-copilot/`
 2. 覆盖你项目中的旧版本
 3. 保留你的 `changes/` 和 `knowledge/` 目录（不要在覆盖时删除）
 
 ### Q: 团队如何共享配置？
 
-1. 将 `.code-copilot/` 提交到 Git 仓库
+1. 将 `code-copilot/` 提交到 Git 仓库
 2. 团队成员克隆后直接使用
 3. 每个人的 `changes/` 和 `knowledge/` 可以在 `.gitignore` 中排除，或提交共享知识
 
@@ -209,7 +209,7 @@ AI 会展示知识发现，询问是否沉淀到 knowledge/。
 
 ### 自定义规则
 
-编辑 `.code-copilot/rules/` 下的文件，添加：
+编辑 `code-copilot/rules/` 下的文件，添加：
 - 项目特定的编码规范
 - 业务领域规则
 - 安全红线
@@ -220,7 +220,7 @@ AI 会展示知识发现，询问是否沉淀到 knowledge/。
 
 ### 模板定制
 
-编辑 `.code-copilot/changes/templates/` 下的模板，适应你的团队需求。
+编辑 `code-copilot/changes/templates/` 下的模板，适应你的团队需求。
 
 ## 获取帮助
 
